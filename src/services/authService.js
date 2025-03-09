@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/auth'; // Ensure this URL is correct
+const API_URL = 'https://budget-9rotwbisq-lammerts-projects.vercel.app/api/auth';
 
 export const registerUser = async (userData) => {
     try {
