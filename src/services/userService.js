@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/user'; // Ensure this URL is correct
+const API_URL = 'https://budget-9ks45pjtz-lammerts-projects.vercel.app/';
 
 export const fetchUserData = async (token) => {
     try {
