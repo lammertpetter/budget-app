@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://budget-9rotwbisq-lammerts-projects.vercel.app/api/auth';
+const API_URL = 'https://budget-9rotwbisq-lammerts-projects.vercel.app/api/auth'; // URL de la API desplegada
 
 export const registerUser = async (userData) => {
     try {
