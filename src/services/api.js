@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://budget-9rotwbisq-lammerts-projects.vercel.app/api';
+const API_URL = 'https://api.example.com/budget'; // Replace with your actual API URL
 
 export const fetchPersonalFinances = async () => {
     try {
