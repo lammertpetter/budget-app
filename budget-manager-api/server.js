@@ -12,7 +12,7 @@ connectDB();
 app.use(cors({
     origin: ['https://budget-9rotwbisq-lammerts-projects.vercel.app', 'https://budget-app-steel-nine.vercel.app'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization','Access-Control-Allow-Origin'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 
