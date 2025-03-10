@@ -10,7 +10,7 @@ connectDB();
 
 // Middleware
 app.use(cors({
-    origin: ['https://budget-9rotwbisq-lammerts-projects.vercel.app', 'https://budget-app-steel-nine.vercel.app'],
+    origin:true,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
