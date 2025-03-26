@@ -4,11 +4,27 @@ require('dotenv').config();
 
 const app = express();
 
-// Define the allowed origin for CORS
-const allowedOrigin = 'https://budget-app-steel-nine.vercel.app';
+// Define allowed origins
+const allowedOrigins = [
+    'https://budget-app-steel-nine.vercel.app', // Production frontend
+    'http://localhost:3000', // Local development (optional)
+];
 
 // Middleware
-app.use(cors({ origin: allowedOrigin })); // Updated CORS configuration
+app.use(cors({
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true, // Allow cookies if needed
+}));
+
+app.options('*', cors()); // Handle preflight requests for all routes
 app.use(express.json());
 
 // Routes

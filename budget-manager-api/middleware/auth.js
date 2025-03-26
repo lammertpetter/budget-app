@@ -1,6 +1,24 @@
 const jwt = require('jsonwebtoken');
 const supabase = require('../config/supabase');
-const allowedOrigin = 'https://budget-app-steel-nine.vercel.app';
+const cors = require('cors');
+const allowedOrigins = [
+    'https://budget-app-steel-nine.vercel.app', // Production frontend
+    'http://localhost:3000', // Local development (optional)
+];
+
+app.use(cors({
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true, // Allow cookies if needed
+}));
+
 const auth = async (req, res, next) => {
     const token = req.header('Authorization')?.replace('Bearer ', '');
     if (!token) {
