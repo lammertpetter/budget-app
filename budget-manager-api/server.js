@@ -1,31 +1,24 @@
 const express = require('express');
-const connectDB = require('./config/db');
 const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
 
-// Conectar a la base de datos
-connectDB();
+// Define the allowed origin for CORS
+const allowedOrigin = 'https://budget-app-steel-nine.vercel.app';
 
 // Middleware
-app.use(cors({
-    origin: [
-        'https://budget-app-steel-nine.vercel.app', // Frontend production domain
-    ],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors({ origin: allowedOrigin })); // Updated CORS configuration
 app.use(express.json());
 
-// Rutas
-app.use('/api/auth', require('./routes/authRoutes')); // Rutas de autenticación
-app.use('/api/user', require('./routes/dataRoutes')); // Rutas de datos del usuario
+// Routes
+app.use('/api/auth', require('./routes/authRoutes')); // Authentication routes
+app.use('/api/user', require('./routes/dataRoutes')); // User data routes
 
 const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-// Manejo de errores para EADDRINUSE
+// Handle EADDRINUSE error
 server.on('error', (err) => {
     if (err.code === 'EADDRINUSE') {
         console.error(`Port ${PORT} is already in use. Please use a different port.`);
