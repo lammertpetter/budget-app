@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const supabase = require('../config/supabase');
-
+const allowedOrigin = 'https://budget-app-steel-nine.vercel.app';
 const auth = async (req, res, next) => {
     const token = req.header('Authorization')?.replace('Bearer ', '');
     if (!token) {
