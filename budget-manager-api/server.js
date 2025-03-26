@@ -10,7 +10,7 @@ connectDB();
 
 // Middleware
 app.use(cors({
-    origin:true,
+    origin: ['https://budget-app-steel-nine.vercel.app'], // Add your frontend's Vercel URL here
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
