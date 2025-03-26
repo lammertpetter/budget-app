@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://budget-manager-api.vercel.app/api/auth'; // Replace with your backend's Vercel URL
+const API_URL = 'https://budget-g3hgiei71-lammerts-projects.vercel.app/api/auth'; // Correct backend URL
 
 export const registerUser = async (userData) => {
     try {
