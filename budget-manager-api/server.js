@@ -12,8 +12,6 @@ connectDB();
 app.use(cors({
     origin: [
         'https://budget-app-steel-nine.vercel.app', // Frontend production domain
-        'https://budget-g3hgiei71-lammerts-projects.vercel.app', // Backend production domain
-        'http://localhost:3000' // Local development (optional)
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']

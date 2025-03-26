@@ -37,6 +37,7 @@ const Register = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Email"
                     required
+                    autoComplete="email"
                 />
                 <input
                     type="password"
@@ -44,6 +45,7 @@ const Register = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
                     required
+                    autoComplete="new-password"
                 />
                 <input
                     type="password"
@@ -51,6 +53,7 @@ const Register = () => {
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     placeholder="Confirm Password"
                     required
+                    autoComplete="new-password"
                 />
                 {error && <p className="error">{error}</p>}
                 <button type="submit">Register</button>

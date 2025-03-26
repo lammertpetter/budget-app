@@ -1,8 +1,9 @@
-// filepath: budget-manager-api/config/supabase.js
 const { createClient } = require('@supabase/supabase-js');
+const fetch = require('node-fetch'); // Add this line
 
-const supabaseUrl = 'https://ovhybthphwbjzktleeoh.supabase.co';
-const supabaseKey = process.env.SUPABASE_KEY; // Usa la clave de tu archivo .env
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY;
+
+const supabase = createClient(supabaseUrl, supabaseKey, { fetch }); // Pass fetch explicitly
 
 module.exports = supabase;
